@@ -130,50 +130,70 @@ export const constantRoutes = [
  */
 export const asyncRoutes = [
   {
-    path:'/course',
-    component:Layout,
-    redirect:'/course/media',
+    path: '/course',
+    component: Layout,
+    redirect: '/course/media',
     alwaysShow: true,
-    name:'Course',
+    name: 'Course',
     meta: {
-          title: '课程',
-          icon: 'excel',
-          roles: ['admin', 'editor'] // you can set roles in root nav
-        },
-        children: [
-              {
-                path: 'media',
-                component: () => import('@/views/course/media'),
-                name: 'Media',
-                meta: {
-                  title: '图文'
-                }
-              },
-              {
-                path: 'audio',
-                component: () => import('@/views/course/audio'),
-                name: 'Audio',
-                meta: {
-                  title: '音频'
-                }
-              },
-              {
-                path: 'video',
-                component: () => import('@/views/course/video'),
-                name: 'Video',
-                meta: {
-                  title: '视频'
-                }
-              },
-              {
-                path: 'column',
-                component: () => import('@/views/course/column'),
-                name: 'Column',
-                meta: {
-                  title: '专栏'
-                }
-              }
-            ]
+      title: '课程',
+      icon: 'excel',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'media',
+        component: () => import('@/views/course/media'),
+        name: 'Media',
+        meta: {
+          title: '图文'
+        }
+      },
+      {
+        path: 'audio',
+        component: () => import('@/views/course/audio'),
+        name: 'Audio',
+        meta: {
+          title: '音频'
+        }
+      },
+      {
+        path: 'video',
+        component: () => import('@/views/course/video'),
+        name: 'Video',
+        meta: {
+          title: '视频'
+        }
+      },
+      {
+        path: 'column',
+        component: () => import('@/views/course/column'),
+        name: 'Column',
+        meta: {
+          title: '专栏'
+        }
+      }, {
+        hidden: true,
+        path: "column_detail",
+        name: "ColumnDetail",
+        component: () =>
+          import('@/views/course/column_detail'),
+        meta: {
+          title: "专栏详情"
+        }
+      }]
+  },
+  {
+    path: '/user',
+    component: Layout,
+    children: [
+      {
+        path: 'user',
+        component: () => import('@/views/user/user'),
+        name: 'User',
+        meta: { title: '用户', icon: 'user' }
+      }
+    ]
   },
   // {
   //   path: '/permission',
