@@ -77,7 +77,7 @@
         class-name="small-padding fixed-width"
       >
         <template slot-scope="{ row, $index }">
-          <el-button type="primary" size="mini" @click="openInfoe(row.user.id)">
+          <el-button type="primary" size="mini"  @click="openInfo(row.user.id)">
             详情
           </el-button>
           <el-button
@@ -163,7 +163,9 @@ export default {
       this.listQuery.page = 1;
       this.getList();
     },
-    openInfo(){},
+    openInfo(id){
+      this.$refs.info.open(id)
+    },
     handleSelectionChange(){},
     changeCommentStatus(){},
     changeAccessStatus(){},

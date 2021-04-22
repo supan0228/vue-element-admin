@@ -195,6 +195,44 @@ export const asyncRoutes = [
       }
     ]
   },
+  {
+    path: '/pay',
+    component: Layout,
+    redirect: '/pay/order',
+    alwaysShow: true,
+    name: 'Pay',
+    meta: {
+      title: '交易',
+      icon: 'money',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'order',
+        component: () => import('@/views/pay/order'),
+        name: 'Order',
+        meta: {
+          title: '订单管理'
+        }
+      },
+      {
+        path: 'pay',
+        component: () => import('@/views/pay/pay'),
+        name: 'Pay',
+        meta: {
+          title: '支付管理'
+        }
+      },
+      {
+        path: 'money',
+        component: () => import('@/views/pay/money'),
+        name: 'Money',
+        meta: {
+          title: '资产管理'
+        }
+      },
+    ]
+  },
   // {
   //   path: '/permission',
   //   component: Layout,
