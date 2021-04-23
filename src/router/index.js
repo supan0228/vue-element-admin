@@ -195,6 +195,7 @@ export const asyncRoutes = [
       }
     ]
   },
+  
   {
     path: '/pay',
     component: Layout,
@@ -220,7 +221,7 @@ export const asyncRoutes = [
         component: () => import('@/views/pay/pay'),
         name: 'Pay',
         meta: {
-          title: '支付管理'
+          title: '支付设置'
         }
       },
       {
@@ -229,6 +230,45 @@ export const asyncRoutes = [
         name: 'Money',
         meta: {
           title: '资产管理'
+        }
+      },
+    ]
+  },
+
+  {
+    path: '/market',
+    component: Layout,
+    redirect: '/market/group',
+    alwaysShow: true,
+    name: 'Market',
+    meta: {
+      title: '营销',
+      icon: 'shopping',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'group',
+        component: () => import('@/views/market/group'),
+        name: 'Group',
+        meta: {
+          title: '拼团'
+        }
+      },
+      {
+        path: 'seckill',
+        component: () => import('@/views/market/seckill'),
+        name: 'Seckill',
+        meta: {
+          title: '秒杀'
+        }
+      },
+      {
+        path: 'discount',
+        component: () => import('@/views/market/discount'),
+        name: 'Discount',
+        meta: {
+          title: '优惠券'
         }
       },
     ]
