@@ -236,6 +236,37 @@ export const asyncRoutes = [
   },
 
   {
+    path: '/visual',
+    component: Layout,
+    redirect: '/visual/mobile',
+    alwaysShow: true,
+    name: 'Visual',
+    meta: {
+      title: '可视化',
+      icon: 'eye',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'mobile',
+        component: () => import('@/views/visual/mobile'),
+        name: 'Mobile',
+        meta: {
+          title: '移动端'
+        }
+      },
+      {
+        path: 'pc',
+        component: () => import('@/views/visual/pc'),
+        name: 'Pc',
+        meta: {
+          title: 'PC端'
+        }
+      },
+    ]
+  },
+
+  {
     path: '/market',
     component: Layout,
     redirect: '/market/group',
